@@ -13,7 +13,7 @@ using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
 
 namespace WpfApp1
-{
+{//ehj
     /// <summary>
     /// Логика взаимодействия для StudentsInfo.xaml
     /// </summary>
