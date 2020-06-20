@@ -110,7 +110,7 @@ namespace WpfApp1
 
             dbEntity.Сведения_О_Студентах.Add(sd);
             dbEntity.SaveChanges();
-            dg1.ItemsSource = dbEntity.Сведения_О_Студентах.ToList();
+            dg1.ItemsSource = dbEntity.Сведения_О_Студентах.ToList();//123
 
             foreach (var item in dbEntity.Сведения_О_Студентах.ToList())
             {
