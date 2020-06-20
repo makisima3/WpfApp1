@@ -1,0 +1,237 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+    <Schema Namespace="Хранилище AksemovExamModel" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <EntityType Name="Пользователи">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="nchar" MaxLength="10" Nullable="false" />
+          <Property Name="Логин" Type="nchar" MaxLength="50" />
+          <Property Name="Пароль" Type="nchar" MaxLength="50" />
+          <Property Name="Может_Редактировать" Type="int" />
+        </EntityType>
+        <EntityType Name="Сведения_О_Вопросах_Теста">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="int" Nullable="false" />
+          <Property Name="Вид_вопроса" Type="nchar" MaxLength="50" />
+          <Property Name="вопрос" Type="nchar" MaxLength="250" />
+          <Property Name="Вариант_ответа№1" Type="nchar" MaxLength="250" />
+          <Property Name="Вариант_ответа№2" Type="nchar" MaxLength="250" />
+          <Property Name="Вариант_ответа№3" Type="nchar" MaxLength="250" />
+          <Property Name="Вариант_ответа№4" Type="nchar" MaxLength="250" />
+          <Property Name="Правильный_ответ" Type="nchar" MaxLength="250" />
+        </EntityType>
+        <EntityType Name="Сведения_О_Студентах">
+          <Key>
+            <PropertyRef Name="ID_студента" />
+          </Key>
+          <Property Name="ID_студента" Type="int" Nullable="false" />
+          <Property Name="Номер_зачетной_книжки" Type="int" />
+          <Property Name="Учебная_группа" Type="nchar" MaxLength="10" />
+          <Property Name="Фамилия" Type="nchar" MaxLength="20" />
+          <Property Name="Имя" Type="nchar" MaxLength="20" />
+          <Property Name="Отчество" Type="nchar" MaxLength="20" />
+        </EntityType>
+        <EntityType Name="Сведения_О_тестировании">
+          <Key>
+            <PropertyRef Name="ID_Тестирования" />
+          </Key>
+          <Property Name="ID_Тестирования" Type="nchar" MaxLength="10" Nullable="false" />
+          <Property Name="Дата" Type="nchar" MaxLength="50" />
+          <Property Name="ID_Студента" Type="int" />
+          <Property Name="Время_На_Тест" Type="int" />
+          <Property Name="Количество_вопросов_в_тесте" Type="int" />
+          <Property Name="Количество_правильных_ответов" Type="int" />
+          <Property Name="Оценка" Type="int" />
+        </EntityType>
+        <Association Name="FK_Сведения_О_тестировании_Сведения_О_Студентах">
+          <End Role="Сведения_О_Студентах" Type="Self.Сведения_О_Студентах" Multiplicity="0..1" />
+          <End Role="Сведения_О_тестировании" Type="Self.Сведения_О_тестировании" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Сведения_О_Студентах">
+              <PropertyRef Name="ID_студента" />
+            </Principal>
+            <Dependent Role="Сведения_О_тестировании">
+              <PropertyRef Name="ID_Студента" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityContainer Name="Хранилище AksemovExamModelContainer">
+          <EntitySet Name="Пользователи" EntityType="Self.Пользователи" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Сведения_О_Вопросах_Теста" EntityType="Self.Сведения_О_Вопросах_Теста" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Сведения_О_Студентах" EntityType="Self.Сведения_О_Студентах" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Сведения_О_тестировании" EntityType="Self.Сведения_О_тестировании" Schema="dbo" store:Type="Tables" />
+          <AssociationSet Name="FK_Сведения_О_тестировании_Сведения_О_Студентах" Association="Self.FK_Сведения_О_тестировании_Сведения_О_Студентах">
+            <End Role="Сведения_О_Студентах" EntitySet="Сведения_О_Студентах" />
+            <End Role="Сведения_О_тестировании" EntitySet="Сведения_О_тестировании" />
+          </AssociationSet>
+        </EntityContainer>
+      </Schema></edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="AksemovExamModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+        <EntityType Name="sysdiagrams">
+          <Key>
+            <PropertyRef Name="diagram_id" />
+          </Key>
+          <Property Name="name" Type="String" MaxLength="128" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="principal_id" Type="Int32" Nullable="false" />
+          <Property Name="diagram_id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="version" Type="Int32" />
+          <Property Name="definition" Type="Binary" MaxLength="Max" FixedLength="false" />
+        </EntityType>
+        <EntityType Name="Сведения_О_Вопросах_Теста">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="Int32" Nullable="false" />
+          <Property Name="Вид_вопроса" Type="String" MaxLength="50" FixedLength="true" Unicode="true" />
+          <Property Name="вопрос" Type="String" MaxLength="250" FixedLength="true" Unicode="true" />
+          <Property Name="Вариант_ответа_1" Type="String" MaxLength="250" FixedLength="true" Unicode="true" />
+          <Property Name="Вариант_ответа_2" Type="String" MaxLength="250" FixedLength="true" Unicode="true" />
+          <Property Name="Вариант_ответа_3" Type="String" MaxLength="250" FixedLength="true" Unicode="true" />
+          <Property Name="Вариант_ответа_4" Type="String" MaxLength="250" FixedLength="true" Unicode="true" />
+          <Property Name="Правильный_ответ" Type="String" MaxLength="250" FixedLength="true" Unicode="true" />
+        </EntityType>
+        <EntityType Name="Сведения_О_Студентах">
+          <Key>
+            <PropertyRef Name="ID_студента" />
+          </Key>
+          <Property Name="ID_студента" Type="Int32" Nullable="false" />
+          <Property Name="Номер_зачетной_книжки" Type="Int32" />
+          <Property Name="Учебная_группа" Type="String" MaxLength="10" FixedLength="true" Unicode="true" />
+          <Property Name="Фамилия" Type="String" MaxLength="20" FixedLength="true" Unicode="true" />
+          <Property Name="Имя" Type="String" MaxLength="20" FixedLength="true" Unicode="true" />
+          <Property Name="Отчество" Type="String" MaxLength="20" FixedLength="true" Unicode="true" />
+          <NavigationProperty Name="Сведения_О_тестировании" Relationship="Self.FK_Сведения_О_тестировании_Сведения_О_Студентах" FromRole="Сведения_О_Студентах" ToRole="Сведения_О_тестировании" />
+        </EntityType>
+        <EntityType Name="Сведения_О_тестировании">
+          <Key>
+            <PropertyRef Name="ID_Тестирования" />
+          </Key>
+          <Property Name="ID_Тестирования" Type="String" MaxLength="10" FixedLength="true" Unicode="true" Nullable="false" />
+          <Property Name="Дата" Type="String" MaxLength="50" FixedLength="true" Unicode="true" />
+          <Property Name="ID_Студента" Type="Int32" />
+          <Property Name="Время_На_Тест" Type="Int32" />
+          <Property Name="Количество_вопросов_в_тесте" Type="Int32" />
+          <Property Name="Количество_правильных_ответов" Type="Int32" />
+          <Property Name="Оценка" Type="Int32" />
+          <NavigationProperty Name="Сведения_О_Студентах" Relationship="Self.FK_Сведения_О_тестировании_Сведения_О_Студентах" FromRole="Сведения_О_тестировании" ToRole="Сведения_О_Студентах" />
+        </EntityType>
+        <Association Name="FK_Сведения_О_тестировании_Сведения_О_Студентах">
+          <End Role="Сведения_О_Студентах" Type="Self.Сведения_О_Студентах" Multiplicity="0..1" />
+          <End Role="Сведения_О_тестировании" Type="Self.Сведения_О_тестировании" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Сведения_О_Студентах">
+              <PropertyRef Name="ID_студента" />
+            </Principal>
+            <Dependent Role="Сведения_О_тестировании">
+              <PropertyRef Name="ID_Студента" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityContainer Name="AksemovExamEntities" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="sysdiagrams" EntityType="Self.sysdiagrams" />
+          <EntitySet Name="Сведения_О_Вопросах_Теста" EntityType="Self.Сведения_О_Вопросах_Теста" />
+          <EntitySet Name="Сведения_О_Студентах" EntityType="Self.Сведения_О_Студентах" />
+          <EntitySet Name="Сведения_О_тестировании" EntityType="Self.Сведения_О_тестировании" />
+          <AssociationSet Name="FK_Сведения_О_тестировании_Сведения_О_Студентах" Association="Self.FK_Сведения_О_тестировании_Сведения_О_Студентах">
+            <End Role="Сведения_О_Студентах" EntitySet="Сведения_О_Студентах" />
+            <End Role="Сведения_О_тестировании" EntitySet="Сведения_О_тестировании" />
+          </AssociationSet>
+          <EntitySet Name="Пользователи" EntityType="AksemovExamModel.Пользователи" />
+        </EntityContainer>
+        <EntityType Name="Пользователи">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="String" Nullable="false" MaxLength="10" Unicode="true" FixedLength="true" />
+          <Property Name="Логин" Type="String" MaxLength="50" FixedLength="true" Unicode="true" />
+          <Property Name="Пароль" Type="String" MaxLength="50" FixedLength="true" Unicode="true" />
+          <Property Name="Может_Редактировать" Type="Int32" />
+        </EntityType>
+      </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+        <EntityContainerMapping StorageEntityContainer="Хранилище AksemovExamModelContainer" CdmEntityContainer="AksemovExamEntities">
+          <EntitySetMapping Name="Сведения_О_Вопросах_Теста">
+            <EntityTypeMapping TypeName="AksemovExamModel.Сведения_О_Вопросах_Теста">
+              <MappingFragment StoreEntitySet="Сведения_О_Вопросах_Теста">
+                <ScalarProperty Name="ID" ColumnName="ID" />
+                <ScalarProperty Name="Вид_вопроса" ColumnName="Вид_вопроса" />
+                <ScalarProperty Name="вопрос" ColumnName="вопрос" />
+                <ScalarProperty Name="Вариант_ответа_1" ColumnName="Вариант_ответа№1" />
+                <ScalarProperty Name="Вариант_ответа_2" ColumnName="Вариант_ответа№2" />
+                <ScalarProperty Name="Вариант_ответа_3" ColumnName="Вариант_ответа№3" />
+                <ScalarProperty Name="Вариант_ответа_4" ColumnName="Вариант_ответа№4" />
+                <ScalarProperty Name="Правильный_ответ" ColumnName="Правильный_ответ" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Сведения_О_Студентах">
+            <EntityTypeMapping TypeName="AksemovExamModel.Сведения_О_Студентах">
+              <MappingFragment StoreEntitySet="Сведения_О_Студентах">
+                <ScalarProperty Name="ID_студента" ColumnName="ID_студента" />
+                <ScalarProperty Name="Номер_зачетной_книжки" ColumnName="Номер_зачетной_книжки" />
+                <ScalarProperty Name="Учебная_группа" ColumnName="Учебная_группа" />
+                <ScalarProperty Name="Фамилия" ColumnName="Фамилия" />
+                <ScalarProperty Name="Имя" ColumnName="Имя" />
+                <ScalarProperty Name="Отчество" ColumnName="Отчество" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Сведения_О_тестировании">
+            <EntityTypeMapping TypeName="AksemovExamModel.Сведения_О_тестировании">
+              <MappingFragment StoreEntitySet="Сведения_О_тестировании">
+                <ScalarProperty Name="ID_Тестирования" ColumnName="ID_Тестирования" />
+                <ScalarProperty Name="Дата" ColumnName="Дата" />
+                <ScalarProperty Name="ID_Студента" ColumnName="ID_Студента" />
+                <ScalarProperty Name="Время_На_Тест" ColumnName="Время_На_Тест" />
+                <ScalarProperty Name="Количество_вопросов_в_тесте" ColumnName="Количество_вопросов_в_тесте" />
+                <ScalarProperty Name="Количество_правильных_ответов" ColumnName="Количество_правильных_ответов" />
+                <ScalarProperty Name="Оценка" ColumnName="Оценка" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Пользователи">
+            <EntityTypeMapping TypeName="AksemovExamModel.Пользователи">
+              <MappingFragment StoreEntitySet="Пользователи">
+                <ScalarProperty Name="Может_Редактировать" ColumnName="Может_Редактировать" />
+                <ScalarProperty Name="Пароль" ColumnName="Пароль" />
+                <ScalarProperty Name="Логин" ColumnName="Логин" />
+                <ScalarProperty Name="ID" ColumnName="ID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+        </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="false" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="true" />
+        <DesignerProperty Name="UseLegacyProvider" Value="false" />
+        <DesignerProperty Name="CodeGenerationStrategy" Value="Нет" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams></Diagrams>
+  </Designer>
+</edmx:Edmx>

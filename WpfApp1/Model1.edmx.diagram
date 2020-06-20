@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+ <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <!-- Diagram content (shape and connector positions) -->
+    <edmx:Diagrams>
+      <Diagram DiagramId="6366f0ff25a14ea899584ed75e304c45" Name="Diagram1">
+        <EntityTypeShape EntityType="AksemovExamModel.sysdiagrams" Width="1.5" PointX="0.75" PointY="4.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="AksemovExamModel.Сведения_О_Вопросах_Теста" Width="1.5" PointX="6.5" PointY="1.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="AksemovExamModel.Сведения_О_Студентах" Width="1.5" PointX="0.75" PointY="1" IsExpanded="true" />
+        <EntityTypeShape EntityType="AksemovExamModel.Сведения_О_тестировании" Width="1.5" PointX="4" PointY="0.875" IsExpanded="true" />
+        <AssociationConnector Association="AksemovExamModel.FK_Сведения_О_тестировании_Сведения_О_Студентах" ManuallyRouted="false" />
+        <EntityTypeShape EntityType="AksemovExamModel.Пользователи" Width="1.5" PointX="3.375" PointY="5.75" />
+      </Diagram>
+    </edmx:Diagrams>
+  </edmx:Designer>
+</edmx:Edmx>

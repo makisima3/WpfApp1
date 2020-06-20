@@ -1,0 +1,27 @@
+﻿<Window x:Class="WpfApp1.Questions"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        Title="Questions" Height="347" Width="544">
+    <Grid>
+        <DataGrid x:Name="dg1" IsReadOnly="True" HorizontalAlignment="Left" Height="215" Margin="10,10,0,0" VerticalAlignment="Top" Width="365" MouseDoubleClick="dg1_MouseDoubleClick"/>
+        <TextBox x:Name="vid" HorizontalAlignment="Left" Height="19" Margin="10,254,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="68"/>
+        <TextBox x:Name="vopr" HorizontalAlignment="Left" Height="19" Margin="83,254,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="68"/>
+        <TextBox x:Name="n1" HorizontalAlignment="Left" Height="19" Margin="156,254,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="68"/>
+        <TextBox x:Name="n2" HorizontalAlignment="Left" Height="19" Margin="229,254,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="68"/>
+        <TextBox x:Name="n3" HorizontalAlignment="Left" Height="19" Margin="301,254,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="68"/>
+        <TextBox x:Name="prav" HorizontalAlignment="Left" Height="19" Margin="447,254,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="68"/>
+        <TextBox x:Name="n4" HorizontalAlignment="Left" Height="19" Margin="374,254,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="68"/>
+        <Button x:Name="Update" Content="Заменить" HorizontalAlignment="Left" Margin="192,278,0,0" VerticalAlignment="Top" Width="155" Height="28" Click="Update_Click"/>
+        <Label Content="Вид вопроса" HorizontalAlignment="Left" Margin="3,228,0,0" VerticalAlignment="Top"/>
+        <Label Content="Вопрос" HorizontalAlignment="Left" Margin="97,230,0,0" VerticalAlignment="Top"/>
+        <Label Content="ответ1" HorizontalAlignment="Left" Margin="166,230,0,0" VerticalAlignment="Top"/>
+        <Label Content="ответ2" HorizontalAlignment="Left" Margin="241,230,0,0" VerticalAlignment="Top"/>
+        <Label Content="ответ3" HorizontalAlignment="Left" Margin="316,230,0,0" VerticalAlignment="Top"/>
+        <Label Content="ответ4" HorizontalAlignment="Left" Margin="391,230,0,0" VerticalAlignment="Top"/>
+        <Label Content="правильный" HorizontalAlignment="Left" Margin="447,228,-20,0" VerticalAlignment="Top"/>
+        <Button x:Name="otch" Content="отчеты по тестированию" HorizontalAlignment="Left" Height="26" Margin="380,10,0,0" VerticalAlignment="Top" Width="146" Click="otch_Click"/>
+        <Button x:Name="add" Content="Добавить" HorizontalAlignment="Left" Height="28" Margin="10,278,0,0" VerticalAlignment="Top" Width="141" Click="add_Click"/>
+        <Button x:Name="Delete" Content="Удалить" HorizontalAlignment="Left" Margin="374,278,0,0" VerticalAlignment="Top" Width="141" Height="28" Click="Delete_Click"/>
+
+    </Grid>
+</Window>
